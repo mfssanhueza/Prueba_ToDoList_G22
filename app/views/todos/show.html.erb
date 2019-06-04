@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card text-white <%= @todo.completed ? 'bg-success' : 'bg-secondary' %>">
   <div class="card-header">
     <%= "Todo##{@todo.id}" %>
   </div>

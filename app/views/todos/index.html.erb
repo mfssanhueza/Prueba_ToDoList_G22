@@ -1,15 +1,15 @@
 <div class="row">
   <% @todos.each do |todo| %>
   <div class="col-md-4">
-    <div class="card">
+    <div class="card <%= todo.completed ? 'border-success' : 'border-danger' %>">
       <div class="card-header">
-        <%= "Todo##{todo.id}" %>
+        <%= todo.completed ? "Tarea realizada" : "Tarea pendiente" %>
       </div>
-      <div class="card-body">
+      <div class="card-body ">
         <h5 class="card-title"><%= todo.description %></h5>
         <%= link_to 'Ver', todo_path(todo), class:'btn btn-primary btn-sm' %>
         <%= link_to 'Editar', todos_edit_path(todo), class:'btn btn-warning btn-sm' %>
-        <%= link_to 'Completar', todos_complete_path(todo), class:'btn btn-success btn-sm' %>
+        <%= link_to 'Completar', todos_complete_path(todo), method: :post, class:'btn btn-success btn-sm' %>
         <%= link_to 'Eliminar', todos_destroy_path(todo), method: :delete, data: { confirm: '¿Estás seguro?' }, class:'btn btn-danger btn-sm' %>
       </div>
     </div>

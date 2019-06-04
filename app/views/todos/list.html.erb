@@ -1,15 +1,19 @@
 <div class="row">
   <div class="col-md-6">
     <h3>Tareas pendientes:</h3>
-      <% @incomplete.each do |ele| %>
-        <h6><%= ele.description %></h6>
-      <% end %>
+      <ul class="list-group">
+        <% @incomplete.each do |ele| %>
+          <li class="list-group-item list-group-item-secondary"><%= ele.description %></li>
+        <% end %>
+      </ul>
   </div>
   <div class="col-md-6">
     <h3>Tareas realizadas:</h3>
-    <% @done.each do |ele| %>
-      <h6><%= ele.description %></h6>
-    <% end %>
+    <ul class="list-group">
+      <% @done.each do |ele| %>
+        <li class="list-group-item list-group-item-success"><%= ele.description %></li>
+      <% end %>
+    </ul>
   </div>
 
 </div>
