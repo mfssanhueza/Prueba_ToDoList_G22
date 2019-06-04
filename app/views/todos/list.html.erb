@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3>Tareas pendientes:</h3>
+      <% @incomplete.each do |ele| %>
+        <h6><%= ele.description %></h6>
+      <% end %>
+  </div>
+  <div class="col-md-6">
+    <h3>Tareas realizadas:</h3>
+    <% @done.each do |ele| %>
+      <h6><%= ele.description %></h6>
+    <% end %>
+  </div>
+
+</div>
