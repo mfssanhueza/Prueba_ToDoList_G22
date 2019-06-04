@@ -1,0 +1,12 @@
+<% @todos.each do |todo| %>
+<div class="card col-md-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= todo.description %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= todo.completed %></h6>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+<br>
+<% end %>
+<%= link_to 'Nueva tarea', todos_new_path, class: 'btn btn-info' %>
