@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy, :complete]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy, :complete, :undo]
   def index
     @todos = Todo.all
   end
@@ -34,7 +34,7 @@ class TodosController < ApplicationController
   def complete
     @todo.completed = true
     @todo.save
-    redirect_to todos_path
+    redirect_back(fallback_location: root_path)
   end
 
   def list
@@ -44,6 +44,12 @@ class TodosController < ApplicationController
     @todos.each do |todo|
       todo.completed ? @done.push(todo) : @incomplete.push(todo)
     end
+  end
+
+  def undo
+    @todo.completed = false
+    @todo.save
+    redirect_back(fallback_location: root_path)
   end
 
   private

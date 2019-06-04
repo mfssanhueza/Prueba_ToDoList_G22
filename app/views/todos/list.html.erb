@@ -3,7 +3,16 @@
     <h3>Tareas pendientes:</h3>
       <ul class="list-group">
         <% @incomplete.each do |ele| %>
-          <li class="list-group-item list-group-item-secondary"><%= ele.description %></li>
+          <li class="list-group-item list-group-item-secondary">
+            <div class="row">
+              <div class="col-md-6">
+                <%= ele.description %>
+              </div>
+              <div class="col-md-6 text-right">
+                <%= link_to 'Do', todos_complete_path(ele), method: :post, class:'btn btn-success btn-sm' %>
+              </div>
+            </div>
+          </li>
         <% end %>
       </ul>
   </div>
@@ -11,7 +20,16 @@
     <h3>Tareas realizadas:</h3>
     <ul class="list-group">
       <% @done.each do |ele| %>
-        <li class="list-group-item list-group-item-success"><%= ele.description %></li>
+        <li class="list-group-item list-group-item-success">
+          <div class="row">
+            <div class="col-md-6">
+              <%= ele.description %>
+            </div>
+            <div class="col-md-6 text-right">
+              <%= link_to 'Undo', todos_undo_path(ele), method: :post, class:'btn btn-primary btn-sm' %>
+            </div>
+          </div>
+        </li>
       <% end %>
     </ul>
   </div>
