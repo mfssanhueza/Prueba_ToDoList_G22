@@ -9,8 +9,8 @@
         <h5 class="card-title"><%= todo.description %></h5>
         <%= link_to 'Ver', todo_path(todo), class:'btn btn-primary btn-sm' %>
         <%= link_to 'Editar', todos_edit_path(todo), class:'btn btn-warning btn-sm' %>
-        <%= link_to 'Completar', todos_complete_path(todo), method: :post, class:'btn btn-success btn-sm' %>
-        <%= link_to 'Eliminar', todos_destroy_path(todo), method: :delete, data: { confirm: '¿Estás seguro?' }, class:'btn btn-danger btn-sm' %>
+        <%= link_to 'Realizar', todos_complete_path(todo), method: :post, class:'btn btn-success btn-sm' %>
+        <%= link_to 'Borrar', todos_destroy_path(todo), method: :delete, data: { confirm: '¿Estás seguro?' }, class:'btn btn-danger btn-sm' %>
       </div>
     </div>
     <br>
@@ -18,4 +18,4 @@
   <% end %>
 </div>
 <br>
-<%= link_to 'Nueva tarea', todos_new_path, class: 'btn btn-secondary' %>
+<%= link_to 'Nueva tarea', todos_new_path, class: 'btn btn-info' %>

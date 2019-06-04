@@ -1,10 +1,10 @@
-<div class="card text-white <%= @todo.completed ? 'bg-success' : 'bg-secondary' %>">
+<div class="card text-white <%= @todo.completed ? 'bg-success' : 'bg-danger' %>">
   <div class="card-header">
     <%= "Todo##{@todo.id}" %>
   </div>
   <div class="card-body">
     <h4 class="card-title"><%= @todo.description %></h4>
     <p class="card-text"><%= @status %></p>
-    <%= link_to 'Volver', todos_path, class:'btn btn-info' %>
+    <%= link_to 'Volver', todos_path, class:'btn btn-secondary' %>
   </div>
 </div>
