@@ -1,15 +1,18 @@
-<% @todos.each do |todo| %>
-<div class="card col-md-4">
-  <div class="card-body">
-    <h5 class="card-title"><%= todo.description %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= todo.completed %></h6>
-    <%= link_to 'Ver', todo_path(todo), class:'btn btn-primary' %>
-    <%= link_to 'Editar', todos_edit_path(todo), class:'btn btn-warning' %>
-
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+<div class="row">
+  <% @todos.each do |todo| %>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= todo.description %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= todo.completed %></h6>
+        <%= link_to 'Ver', todo_path(todo), class:'btn btn-primary' %>
+        <%= link_to 'Editar', todos_edit_path(todo), class:'btn btn-warning' %>
+        <%= link_to 'Eliminar', todos_destroy_path(todo), method: :delete, class:'btn btn-danger' %>
+      </div>
+    </div>
+    <br>
   </div>
+  <% end %>
 </div>
 <br>
-<% end %>
 <%= link_to 'Nueva tarea', todos_new_path, class: 'btn btn-secondary' %>
